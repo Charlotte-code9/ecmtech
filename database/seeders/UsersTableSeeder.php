@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use phpDocumentor\Reflection\Types\Null_;
 
 class UsersTableSeeder extends Seeder
 {
@@ -25,7 +26,8 @@ class UsersTableSeeder extends Seeder
             $newUser = config('roles.models.defaultUser')::create([
                 'name'     => 'Admin',
                 'email'    => 'admin@admin.com',
-                'password' => bcrypt('password'),
+                'password' => bcrypt('admin'),
+
             ]);
 
             $newUser->attachRole($adminRole);
@@ -36,12 +38,15 @@ class UsersTableSeeder extends Seeder
 
         if (config('roles.models.defaultUser')::where('email', '=', 'firstuser@gmail.com')->first() === null) {
             $newUser = config('roles.models.defaultUser')::create([
-                'name'     => 'First User',
+                'name'     => 'Charlotte Medalla',
                 'email'    => 'firstuser@gmail.com',
-                'password' => bcrypt('password'),
+                'category' => 'student',
+                'password' => bcrypt('user'),
             ]);
 
             $newUser->attachRole($userRole);
         }
+
+
     }
 }

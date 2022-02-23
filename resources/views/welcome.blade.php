@@ -11,7 +11,7 @@
 
     </head>
 
-    @extends('auth.login') <!-- login.blade.php
-    
+    @extends('auth.login') <!-- login.blade.php-->
+
 </body>
 </html>

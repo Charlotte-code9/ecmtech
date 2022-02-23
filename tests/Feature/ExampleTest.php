@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -12,10 +13,22 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function test_admin_borrower_page()
     {
-        $response = $this->get('/');
 
-        $response->assertStatus(200);
+        // $this->assertDatabaseCount('users', 3);
+
+        // $admin = User::where('email', 'admin@admin.com')->first();
+
+        $admin = User::find(1);
+        $this->actingAs($admin);
+
+        $response = $this->get('/admin/borrower');
+
+
+        // $response = $this->get('/');
+
+        $response->assertSeeText("Rexan Mae Rodrigo");
+        // $response->assertStatus(200);
     }
 }

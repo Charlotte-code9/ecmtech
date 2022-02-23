@@ -1,0 +1,28 @@
+users // accounts
+    id
+    email
+    username
+    password
+    name
+    category
+
+borrower_profiles
+    id
+    user_id
+    firstname
+    lastname
+    id_number
+    department
+    year
+    section
+
+$user->borrower_profile->department
+
+
+Tailwind
+AlpineJS
+Laravel
+Livewire
+
+
+Aeri

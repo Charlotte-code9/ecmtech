@@ -10850,7 +10850,7 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url("../public/admin/img/logo.jpg");
+  background: url("../public/-admin/img/ctu.png");
   background-position: center;
   background-size: cover;
 }

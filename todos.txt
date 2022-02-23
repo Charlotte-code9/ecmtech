@@ -1,0 +1,1 @@
+1. When user/borrower is registering, make sure to assign the `User` role.
