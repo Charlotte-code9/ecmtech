@@ -19,6 +19,12 @@ class BorrowedItems extends Model
     ];
 
     protected $casts = [
-        'itemb' => 'datetime'
+        'itemb' => 'datetime',
+        'returnd' => 'datetime',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

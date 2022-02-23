@@ -103,7 +103,7 @@
                                                     @foreach ($bt as $btdata)
                                                         <tr>
                                                             <td hidden></td>
-                                                            <td>{{ $btdata->bname }}</td>
+                                                            <td>{{ $btdata->user->name }}</td>
                                                             <td>{{ $btdata->itemb->format('F j, Y @ h:i A') }}</td>
                                                             <td>{{ $btdata->bdate }}</td>
                                                             <td>{{ $btdata->bquantity }}</td>
@@ -260,6 +260,3 @@
 </body>
 
 </html>
-
-
-

@@ -2,19 +2,27 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Reservation extends Model
 {
     use HasFactory;
     protected $table = 'reservations';
-    protected $fillable = [
-        'name',
-        'Name_item',
-        'quantity_item',
-        'dt_item',
-        'room_item',
-        'ldate_item',
-    ];
+    protected $guarded = [];
+    // protected $fillable = [
+    //     'name',
+    //     'Name_item',
+    //     'quantity_item',
+    //     'dt_item',
+    //     'room_item',
+    //     'ldate_item',
+    // ];
+
+
+    public function user()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

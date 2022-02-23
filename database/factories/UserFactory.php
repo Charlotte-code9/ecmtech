@@ -15,6 +15,17 @@ class UserFactory extends Factory
      */
     protected $model = User::class;
 
+    /** @test */
+    public function configure()
+    {
+        return $this->afterMaking(function (User $user) {
+            //
+        })->afterCreating(function (User $user) {
+            $role = config('roles.models.role')::where('name', '=', 'User')->first();  //choose the default role upon user creation.
+            $user->attachRole($role);
+        });
+    }
+
     /**
      * Define the model's default state.
      *
