@@ -104,7 +104,7 @@
                                                         <tr>
                                                             <td hidden></td>
                                                             <td>{{ $btdata->bname }}</td>
-                                                            <td>{{ $btdata->itemb }}</td>
+                                                            <td>{{ $btdata->itemb->format('F j, Y @ h:i A') }}</td>
                                                             <td>{{ $btdata->bdate }}</td>
                                                             <td>{{ $btdata->bquantity }}</td>
                                                             <td>{{ $btdata->broom }}</td>

@@ -17,4 +17,8 @@ class BorrowedItems extends Model
         'bquantity',
 
     ];
+
+    protected $casts = [
+        'itemb' => 'datetime'
+    ];
 }

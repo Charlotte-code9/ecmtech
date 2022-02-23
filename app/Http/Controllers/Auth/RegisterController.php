@@ -72,16 +72,16 @@ class RegisterController extends Controller
      */
 
 
-    protected function create(array $data)
+    public function create(array $data)
     {
-        $user = config('roles.models.defaultUser')::create([
-        'name' => $data['name'],
-        'email' => $data['email'],
-        'password' => bcrypt($data['password']),
-        'u_category' => $data['u_category'],
-        'mobile' => $data['mobile'],
-        'uyear' => $data['uyear'],
-        'usec' => $data['usec'],
+        $user = User::create([
+            'name' => $data['name'], 
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+            'u_category' => $data['u_category'],
+            'mobile' => $data['mobile'],
+            'uyear' => $data['u_category']=='Student' ? $data['uyear'] : null,
+            'usec' => $data['u_category']=='Student' ? $data['usec'] : null,
         ]);
 
         $role = config('roles.models.role')::where('name', '=', 'User')->first();  //choose the default role upon user creation.
