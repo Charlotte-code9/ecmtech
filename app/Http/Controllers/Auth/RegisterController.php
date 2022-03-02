@@ -56,11 +56,11 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'mobile' => ['required' ,'string' ,'unique:users'],
+            'mobile' => ['required' ,'string' ,'unique:users','min:11','regex:/^(\+?63)(?:\d(?:-)?){9,10}$/'],
             'u_category' => ['required' ,'string'],
             'uyear' => ['required_if:u_category,!=,student', 'nullable','string'],
             'usec' => ['required_if:u_category,!=,student', 'nullable' ,'string'],
-            
+
         ]);
     }
 
@@ -75,7 +75,7 @@ class RegisterController extends Controller
     public function create(array $data)
     {
         $user = User::create([
-            'name' => $data['name'], 
+            'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'u_category' => $data['u_category'],

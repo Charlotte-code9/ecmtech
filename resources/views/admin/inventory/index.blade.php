@@ -66,7 +66,7 @@
                 <!-- Topbar -->
                 @include('admin.components.header')
                 <!-- End of Topbar -->
-
+             {!! Toastr::message() !!}
                 <!-- Begin Page Content -->
 
                 <div class="container-fluid">
@@ -81,8 +81,7 @@
                         <!--/.row-->
                     </div>
 
-                    <hr>
-                      <br>
+                     <hr>
                     <!-- Table for Room -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -221,6 +220,47 @@
 	<script type="text/javascript" language="javascript" src="../resources/demo.js"></script>
 	<script type="text/javascript" class="init">
 
+      <script src="{{ asset('-admin/js/demo/datatables-demo.js') }}"></script>
+
+
+
+       <script>
+        @if(Session::has('message'))
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+                toastr.success("{{ session('message') }}");
+        @endif
+
+        @if(Session::has('error'))
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+                toastr.error("{{ session('error') }}");
+        @endif
+
+        @if(Session::has('info'))
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+                toastr.info("{{ session('info') }}");
+        @endif
+
+        @if(Session::has('warning'))
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+                toastr.warning("{{ session('warning') }}");
+        @endif
+      </script>
 </body>
 
 </html>

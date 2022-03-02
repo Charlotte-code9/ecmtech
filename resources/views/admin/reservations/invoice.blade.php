@@ -14,7 +14,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Invoice</title>
+    <title>BSIT DEPARTMENT</title>
+    <link rel ="icon" href="{{ asset('-admin/img/ctu.png')}}" type="image/x-icon">
     <style>
         body{
             background-color: #F6F6F6;

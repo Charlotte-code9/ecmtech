@@ -35,7 +35,7 @@
 
             <div class="form-group">
                 <label>Category</label>
-                <input type="text" class="form-control" name="category" id="category "placeholder="Type"value="{{ Auth::user()->category}}">
+                <input type="text" class="form-control" name="u_category" id="u_category "placeholder="Type"value="{{ Auth::user()->u_category}}">
             </div>
 
             <div class="form-group">

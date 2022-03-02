@@ -22,7 +22,7 @@ class EquipmentController extends Controller
 
     public function index()
     {
-        $act = ActivityLogs::where('name','!=', 'admin')->get();
+        $act = ActivityLogs::where('name','!=', 'admin')->latest()->take(5)->get();
         $eqp = Equipment::all();
         return view('admin.equipment.index',compact(['eqp','act']));
     }

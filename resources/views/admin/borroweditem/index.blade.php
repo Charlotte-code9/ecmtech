@@ -71,14 +71,14 @@
                     <div>
                         <div class="d-sm-flex align-items-center justify-content-between mb-4 breadcrumb">
                         <h1 class="h5 mb-0 text-gray-800"><span><a href="{{route('admin.home')}}" class="fas fa-home"></a> &nbsp;/ Borrowed Items </span></h1>
-                        <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#exampleModal"><i
-                            class="fas fa-download fa-sm text-white-50"></i> Add Equipment</a> -->
+                        <a href="{{ route('admin.borrowed.generate') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
                         <!--/.row-->
                     </div>
 
 
-
+                    <hr>
                                         <div class="card shadow mb-4">
                                                 <div class="card-header py-3">
                                                     <h6 class="m-0 font-weight-bold text-primary">Borrowed Items List</h6>
@@ -95,6 +95,7 @@
                                                             <th>Equipment Borrowed</th>
                                                             <th>Quantity</th>
                                                             <th>Rooms</th>
+                                                            <th>Return Date</th>
                                                             <th>Action</th>
                                                          </tr>
                                                     </thead>
@@ -103,15 +104,21 @@
                                                     @foreach ($bt as $btdata)
                                                         <tr>
                                                             <td hidden></td>
-                                                            <td>{{ $btdata->user->name }}</td>
+                                                            <td>{{ $btdata->bname }}</td>
                                                             <td>{{ $btdata->itemb->format('F j, Y @ h:i A') }}</td>
                                                             <td>{{ $btdata->bdate }}</td>
                                                             <td>{{ $btdata->bquantity }}</td>
                                                             <td>{{ $btdata->broom }}</td>
+                                                            <td>{{ $btdata->returnd->format('F j, Y @ h:i A') }}</td>
                                                             <td>
                                                             <form action="{{route('admin.borrowed.return',$btdata->id)}}" method="POST">
                                                             {{ csrf_field() }}
                                                             <button type="submit" class="btn btn-primary btn-sm btnreturn">Return <i class="fas fa-chevron-right"></i></button>
+                                                            </form>
+                                                            <br>
+                                                            <form action="{{route('admin.borrowed.lost',$btdata->id)}}" method="POST">
+                                                            {{ csrf_field() }}
+                                                             <button type="submit" class="btn btn-danger btn-sm btnreturn">Lost <i class="fas fa-chevron-right"></i></button>
                                                             </form>
                                                             </td>
                                                         </tr>

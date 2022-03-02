@@ -27,108 +27,121 @@
     <link href="{{ asset('-admin/css/login.css') }}" rel="stylesheet">
 
     <!-- Custom styles for the modal -->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
+     <!-- Custom styles for the toastr -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-
+    alpha/css/bootstrap.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
+
     <style>
-    *{
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
-  list-style: none;
-  box-sizing: border-box;
-}
+        *{
+      padding: 0;
+      margin: 0;
+      text-decoration: none;
+      list-style: none;
+      box-sizing: border-box;
+    }
 
-nav{
-  background: #187bcd;
-  height: 80px;
-  width: 100%;
-}
-label.logo{
-  color: white;
-  font-size: 35px;
-  line-height: 80px;
-  padding: 0 100px;
-  font-weight: bold;
-}
-nav ul{
-  float: right;
-  margin-right: 20px;
-}
-nav ul li{
-  display: inline-block;
-  line-height: 80px;
-  margin: 0 5px;
-}
-nav ul li a{
-  color: white;
-  font-size: 17px;
-  padding: 7px 13px;
-  border-radius: 3px;
- 
-}
-a.active,a:hover{
-  background: #1b9bff;
-  transition: .5s;
-}
-.checkbtn{
-  font-size: 30px;
-  color: white;
-  float: right;
-  line-height: 80px;
-  margin-right: 40px;
-  cursor: pointer;
-  display: none;
-}
-#check{
-  display: none;
-}
-@media (max-width: 952px){
-  label.logo{
-    font-size: 30px;
-    padding-left: 50px;
-  }
-  nav ul li a{
-    font-size: 16px;
-  }
-}
-@media (max-width: 858px){
-  .checkbtn{
-    display: block;
-  }
-  ul{
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: #2c3e50;
-    top: 80px;
-    left: -100%;
-    text-align: center;
-    transition: all .5s;
-  }
-  nav ul li{
-    display: block;
-    margin: 50px 0;
-    line-height: 30px;
-  }
-  nav ul li a{
-    font-size: 15px;
-  }
-  a:hover,a.active{
-    background: none;
-    color: #0082e6;
-  }
-  #check:checked ~ ul{
-    left: 0;
-  }
-}
-section{
-  background: url(bg1.jpg) no-repeat;
-  background-size: cover;
-  height: calc(100vh - 80px);
-}
-    </style>
+    nav{
+      background: #187bcd;
+      height: 80px;
+      width: 100%;
+    }
+    label.logo{
+      color: white;
+      font-size: 30px;
+      line-height: 80px;
+      padding: 0 100px;
+      font-weight: bold;
+    }
+    nav ul{
+      float: right;
+      margin-right: 20px;
+    }
+    nav ul li{
+      display: inline-block;
+      line-height: 80px;
+      margin: 0 5px;
+    }
+    nav ul li a{
+      color: white;
+      font-size: 17px;
+      padding: 7px 13px;
+      border-radius: 3px;
+
+    }
+    a.active,a:hover{
+      background: #1b9bff;
+      transition: .5s;
+    }
+    .checkbtn{
+      font-size: 30px;
+      color: white;
+      float: right;
+      line-height: 80px;
+      margin-right: 40px;
+      cursor: pointer;
+      display: none;
+    }
+    #check{
+      display: none;
+    }
+    @media (max-width: 952px){
+      label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+      }
+      nav ul li a{
+        font-size: 16px;
+      }
+    }
+    @media (max-width: 858px){
+      .checkbtn{
+        display: block;
+      }
+      ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #2c3e50;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+      }
+      nav ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+      }
+      nav ul li a{
+        font-size: 15px;
+      }
+      a:hover,a.active{
+        background: none;
+        color: #0082e6;
+      }
+      #check:checked ~ ul{
+        left: 0;
+      }
+    }
+    section{
+      background: url(bg1.jpg) no-repeat;
+      background-size: cover;
+      height: calc(100vh - 80px);
+    }
+        </style>
+
 </head>
 
 <body id="page-top">
@@ -136,9 +149,9 @@ section{
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-           <!-- Sidebar -->
-                @include('dashboard.components.sidebar')
-                <!-- End of Topbar -->
+        <!-- Sidebar -->
+      @include('dashboard.components.sidebar')
+        <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -149,7 +162,7 @@ section{
                 <!-- Topbar -->
                 @include('dashboard.components.header')
                 <!-- End of Topbar -->
-
+                {!! Toastr::message() !!}
                 <!-- Begin Page Content -->
 
                 <div class="container-fluid">
@@ -157,47 +170,41 @@ section{
                     <!-- Page Heading -->
                     <div>
                         <div class="d-sm-flex align-items-center justify-content-between mb-4 breadcrumb">
-                            <h1 class="h5 mb-0 text-gray-800"><span><a href="{{route('dashboard.home')}}" class="fas fa-home"></a> &nbsp; Equipment</span></h1>
-                        </div>
+                        <h1 class="h5 mb-0 text-gray-800"><span><a href="{{route('admin.home')}}" class="fas fa-home"></a> &nbsp;/ Equipment </span></h1>
+                        <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#exampleModal"><i
+                            class="fas fa-download fa-sm text-white-50"></i> Add Equipment</a> -->
                     </div>
-                    
+                        <!--/.row-->
+                    </div>
+
+
                     <div class="row">
-    	            <nav>
-                    <input type="checkbox" id="check">
-                    <label for="check" class="checkbtn">
-                        <i class="fas fa-bars"></i>
-                    </label>
-                    <label class="logo">Category</label>
-                    <ul class="nav nav-pills">
-                        <li class="active"><a class="active" href="#pending" data-toggle="tab">Computer Device</a></li>
-                        <li><a href="#reserved" data-toggle="tab">Sports</a></li>
-                        <li><a href="#" data-toggle="tab">Learning Modules</a></li>
-                        <li><a href="#" data-toggle="tab">Faculty Staffs</a></li>
-                    </ul>
-                    </nav>
-               </div>
-                 
-                    <!--<ul class="nav justify-content-center">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#pending" data-toggle="tab">Computer Device</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Learning Modules</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#reserved" data-toggle="tab">Sports</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#reserved" data-toggle="tab">Faculty Staffs</a>
-                    </li>
-                    </ul>-->
+                        <nav>
+                        <input type="checkbox" id="check">
+                        <label for="check" class="checkbtn">
+                            <i class="fas fa-bars"></i>
+                        </label>
+                        <label class="logo">Category</label>
+                        <ul class="nav nav-pills">
+                            <li class="active"><a class="active" href="#pending" data-toggle="tab">Computer Device</a></li>
+                            <li><a href="#reserved" data-toggle="tab">Sports</a></li>
+                            <li><a href="#learning" data-toggle="tab">Learning Modules</a></li>
+                            <li><a href="#faculty" data-toggle="tab">Faculty Staffs</a></li>
+                        </ul>
+                        </nav>
+                   </div>
 
+                    <!--<div class="row">
+                        <div class="col-md-12">
+                            <ul class="nav nav-pills">
+                                <li class="active"><a href="#pending" data-toggle="tab" class="btn btn-sm btn-primary shadow-sm active"><i class="fa fa-list"></i>&nbsp;&nbsp;Pending Reservation</a></li>&nbsp;
+                                <li class=" "><a href="#reserved" data-toggle="tab" class="btn btn-sm btn-primary shadow-sm"><i class="fa fa-question"></i>&nbsp;&nbsp;Accepted Reservation</a></li>
+                            </ul>
+                        </div>
+                    </div>-->
+                    <hr>
 
-  
-                 
-                    
-
-                   <div class="row">
+                    <div class="row">
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-body">
@@ -206,7 +213,7 @@ section{
                                         <div class="tab-pane active" id="pending">
                                         <div class="card shadow mb-4">
                                                 <div class="card-header py-3">
-                                                    <h6 class="m-0 font-weight-bold text-primary">Computer Devices</h6>
+                                                    <h6 class="m-0 font-weight-bold text-primary">Computer Device</h6>
                                                 </div>
                                             <div class="card-body">
 
@@ -219,8 +226,9 @@ section{
                                                             <th>Image</th>
                                                             <th>Brand</th>
                                                             <th>Item Name</th>
-                                                            <th>Available Qty</th>
-                                                            <th>Status</th>
+                                                            <th>Available Quantity</th>
+                                                   
+
                                                          </tr>
                                                     </thead>
 
@@ -234,10 +242,11 @@ section{
                                                             <td>{{ $invdata->e_model }}</td>
                                                             <td>{{ $invdata->e_brand }}</td>
                                                             <td>{{ $invdata->e_quantity }}</td>
-                                                            <td>{{ $invdata->e_status }}</td>
+                                                       
                                                         </tr>
 
                                                         @endforeach
+
                                                     </tbody>
                                                 </table>
 
@@ -263,8 +272,7 @@ section{
                                                             <th>Image</th>
                                                             <th>Brand</th>
                                                             <th>Item Name</th>
-                                                            <th>Available Qty</th>
-                                                            <th>Status</th>
+                                                            <th>Available Quantity</th>
                                                           
                                                          </tr>
                                                     </thead>
@@ -279,14 +287,107 @@ section{
                                                             <td>{{ $eqsdata->e_model }}</td>
                                                             <td>{{ $eqsdata->e_brand }}</td>
                                                             <td>{{ $eqsdata->e_quantity }}</td>
-                                                            
-                                                            <td>{{ $eqsdata->e_status }}</td>
                                                         </tr>
 
                                                         @endforeach
+
                                                     </tbody>
                                                 </table>
                                             </div>
+                                            </div>
+                                            </div>
+                                        </div>
+
+
+                                        <!-- Table for learning modules equipment-->
+                                        <div class="tab-pane" id="learning">
+                                            <div class="card shadow mb-4">
+                                                <div class="card-header py-3">
+                                                    <h6 class="m-0 font-weight-bold text-primary">Learning Modules</h6>
+                                                </div>
+                                            <div class="card-body">
+
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered tbl_acceptres display" id="dataTable" width="100%" cellspacing="0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th hidden>ID</th>
+                                                            <th>Category</th>
+                                                            <th>Image</th>
+                                                            <th>Brand</th>
+                                                            <th>Item Name</th>
+                                                            <th>Available Quantity</th>
+                                                            
+
+                                                         </tr>
+                                                    </thead>
+
+                                                    <tbody>
+                                                        @foreach ($eql as $eqsdata)
+
+                                                        <tr>
+                                                            <td hidden>{{ $eqsdata->id }}</td>
+                                                            <td>{{ $eqsdata->e_category }}</td>
+                                                            <td><img src="{{ asset('storage/public/e_img/'.$eqsdata->e_image) }}" alt="Image" width="70px" height="70px"></td>
+                                                            <td>{{ $eqsdata->e_model }}</td>
+                                                            <td>{{ $eqsdata->e_brand }}</td>
+                                                            <td>{{ $eqsdata->e_quantity }}</td>
+
+                                                        </tr>
+
+                                                        @endforeach
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+
+                                            </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Table for faculty staffs equipment-->
+                                        <div class="tab-pane" id="faculty">
+                                            <div class="card shadow mb-4">
+                                                <div class="card-header py-3">
+                                                    <h6 class="m-0 font-weight-bold text-primary">Faculty Staffs</h6>
+                                                </div>
+                                            <div class="card-body">
+
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered tbl_acceptres display" id="dataTable" width="100%" cellspacing="0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th hidden>ID</th>
+                                                            <th>Category</th>
+                                                            <th>Image</th>
+                                                            <th>Brand</th>
+                                                            <th>Item Name</th>
+                                                            <th>Available Quantity</th>
+                                                     
+
+                                                         </tr>
+                                                    </thead>
+
+                                                    <tbody>
+                                                        @foreach ($eqf as $eqsdata)
+
+                                                        <tr>
+                                                            <td hidden>{{ $eqsdata->id }}</td>
+                                                            <td>{{ $eqsdata->e_category }}</td>
+                                                            <td><img src="{{ asset('storage/public/e_img/'.$eqsdata->e_image) }}" alt="Image" width="70px" height="70px"></td>
+                                                            <td>{{ $eqsdata->e_model }}</td>
+                                                            <td>{{ $eqsdata->e_brand }}</td>
+                                                            <td>{{ $eqsdata->e_quantity }}</td>
+                                                        </tr>
+
+                                                        @endforeach
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+
                                             </div>
                                             </div>
                                         </div>
@@ -296,11 +397,9 @@ section{
                             </div>
                         </div>
                     </div>
-                </div>
-
+                    </div>
 
              </div>
-
             <!-- End of Main Content -->
 
         <!-- Footer -->
@@ -346,7 +445,22 @@ section{
     </div>
 
 
+    <script text="text/javascript">
+        $(document).ready(function() {
+    $('.btnborrow').printPage();
+} );
+    </script>
 
+    <script>
+        $(document).ready(function() {
+    $('table.display').DataTable();
+} );
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('-admin/vendor/jquery/jquery.min.js') }}"></script>
@@ -372,13 +486,53 @@ section{
 	<script type="text/javascript" language="javascript" src="../resources/demo.js"></script>
 	<script type="text/javascript" class="init">
 
-    <script src="{{ asset ('-admin/js/newjs.js') }}"></script>
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <script src="{{ asset('-admin/js/demo/datatables-demo.js') }}"></script>
+
+
+
+       <script>
+        @if(Session::has('message'))
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+                toastr.success("{{ session('message') }}");
+        @endif
+
+        @if(Session::has('error'))
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+                toastr.error("{{ session('error') }}");
+        @endif
+
+        @if(Session::has('info'))
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+                toastr.info("{{ session('info') }}");
+        @endif
+
+        @if(Session::has('warning'))
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+                toastr.warning("{{ session('warning') }}");
+        @endif
+      </script>
+
+
 </body>
 
 </html>
-
 
 
 

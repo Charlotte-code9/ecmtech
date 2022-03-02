@@ -21,7 +21,7 @@
                         <div class="card-header">Profile</div>
                         <div class="card-body text-center">
                             <!-- Profile picture image-->
-                            <img class="img-account-profile rounded-circle mb-2" src="{{ asset('-admin/img/icon.jpg')}}" alt="" width="80px" height="80px" />
+                            <img class="img-account-profile rounded-circle mb-2" src="{{ asset('-admin/img/user.jpg')}}" alt="" width="100%" height="100%" />
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                                     <!-- Form Group (last name)-->
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="brand">Type</label>
-                                        <input class="form-control" id="e_brand" type="e_brandt" value="{{$borrower->category}}" />
+                                        <input class="form-control" id="e_brand" type="e_brandt" value="{{$borrower->u_category}}" />
                                     </div>
                                 </div>
                                 <div class="row gx-3 mb-3">

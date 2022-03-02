@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +17,7 @@
 
      <title>BSIT DEPARTMENT</title>
     <link rel ="icon" href="{{ asset('-admin/img/ctu.png')}}" type="image/x-icon">
-	
+
      <!-- Custom styles for this page -->
      <link href="{{ asset('-admin/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 
@@ -28,85 +29,58 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('-admin/css/login.css') }}" rel="stylesheet">
- <!-- Custom styles for the modal -->
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
- integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script
-src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
-</script>
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!-- Custom styles for the modal -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-	<script>
-	window.onload = function() {
-	
-// Equiment Status
-	var chart1 = new CanvasJS.Chart("chartContainer", {
-		theme: "light2", // "light1", "light2", "dark1", "dark2"
-		exportEnabled: true,
-		animationEnabled: true,
-		title: {
-			text: "Equipment Status"
-		},
-		data: [{
-			type: "pie",
-			startAngle: 25,
-			toolTipContent: "<b>{label}</b>: {y}%",
-			showInLegend: "true",
-			legendText: "{label}",
-			indexLabelFontSize: 16,
-			indexLabel: "{label} - {y}%",
-			dataPoints: [
-				{ y: {{ $new_count}}, label: "New" },
-				{ y: {{ $old_count}}, label: "Old" },
-				{ y: {{ $lost_count}}, label: "Lost" },
-				
-			]
-		}]
-		
-	});
-	// Equiment Inventory
-	var chart4 = new CanvasJS.Chart("chartContainer4", {
-		theme: "light2", // "light1", "light2", "dark1", "dark2"
-		exportEnabled: true,
-		animationEnabled: true,
-		title: {
-			text: "Equipment Inventory"
-		},
-		data: [{
-			type: "pie",
-			startAngle: 25,
-			toolTipContent: "<b>{label}</b>: {y}%",
-			showInLegend: "true",
-			legendText: "{label}",
-			indexLabelFontSize: 16,
-			indexLabel: "{label} - {y}%",
-			dataPoints: [
-				{ y: {{ $c1_count}}, label: "Computer Hardware" },
-				{ y: {{ $c2_count}}, label: "Learning Modules" },
-				{ y: {{ $c3_count}}, label: "Sports" },
-				{ y: {{ $c4_count}}, label: "Faculty Staffs" },
-				
-			]
-		}]
-		
-	});
-
-	var chart2 = new CanvasJS.Chart("chartContainer2", {
-	exportEnabled: true,
+    
+<script>
+window.onload = function() {
+// Equipment Inventory
+var chart = new CanvasJS.Chart("chartContainer", {
+    theme: "light2", 
 	animationEnabled: true,
+    exportEnabled: true,
+	title: {
+		text: "Equipment Inventory"
+	},
+	data: [{
+		type: "pie",
+		startAngle: 240,
+		yValueFormatString: "##0\"%\"",
+		indexLabel: "{label} {y}",
+		dataPoints: [
+			{y: {{ $c1_count }}, label: "Computer Device"},
+			{y: {{ $c2_count }}, label: "Sports"},
+			{y: {{ $c3_count }}, label: "Learning Modules"},
+			{y: {{ $c4_count }}, label: "Faculty Staffs"},
+		
+		]
+	}]
+});
+
+//Borrowed and Returned
+
+
+var chart3 = new CanvasJS.Chart("chartContainer3", {
+	animationEnabled: true,
+    exportEnabled: true,
 	title:{
 		text: "Classified Monthly Borrower"
 	},	
 	axisY: {
-		title: "Students",
+		title: "Faculty",
 		titleFontColor: "#4F81BC",
 		lineColor: "#4F81BC",
 		labelFontColor: "#4F81BC",
 		tickColor: "#4F81BC"
 	},
 	axisY2: {
-		title: "Faculty",
+		title: "Students",
 		titleFontColor: "#C0504E",
 		lineColor: "#C0504E",
 		labelFontColor: "#C0504E",
@@ -121,48 +95,47 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 	},
 	data: [{
 		type: "column",
-		name: "Student",
-		legendText: "Students",
+		name: "Faculty",
+		legendText: "Faculty",
 		showInLegend: true, 
 		dataPoints:[
-			{ label: "Jan", y: 300.1 },
-			{ label: "Feb", y: 302.25 },
-			{ label: "Mar", y: 157.20 },
-			{ label: "Apr", y: 148.77 },
-			{ label: "May", y: 101.50 },
-			{ label: "Jun", y: 97.8 },
-			{ label: "Jul", y: 97.8 },
-			{ label: "Aug", y: 97.8 },
-			{ label: "Sep", y: 97.8 },
-			{ label: "Oct", y: 97.8 },
-			{ label: "Nov", y: 97.8 },
-			{ label: "Dec", y: 97.8 },
-
+			{ label: "Jan", y: {{ $janf }} },
+			{ label: "Feb", y: {{ $febf }} },
+			{ label: "Mar", y: {{ $marf }} },
+			{ label: "Apr", y: {{ $aprf }} },
+			{ label: "May", y: {{ $mayf }} },
+			{ label: "Jun", y: {{ $junf }} },
+            { label: "Jul", y: {{ $julf }} },
+            { label: "Aug", y: {{ $augf }} },
+            { label: "Sep", y: {{ $sepf }} },
+            { label: "Oct", y: {{ $octf }} },
+            { label: "Nov", y: {{ $novf }} },
+            { label: "Dec", y: {{ $decf }} },
 		]
 	},
 	{
 		type: "column",	
-		name: "Faculty",
-		legendText: "Faculty",
+		name: "Students",
+		legendText: "Students",
 		axisYType: "secondary",
 		showInLegend: true,
 		dataPoints:[
-			{ label: "Jan", y: 266.21 },
-			{ label: "Feb", y: 302.25 },
-			{ label: "Mar", y: 157.20 },
-			{ label: "Apr", y: 148.77 },
-			{ label: "May", y: 101.50 },
-			{ label: "Jun", y: 97.8 },
-			{ label: "Jul", y: 97.8 },
-			{ label: "Aug", y: 97.8 },
-			{ label: "Sep", y: 97.8 },
-			{ label: "Oct", y: 97.8 },
-			{ label: "Nov", y: 97.8 },
-			{ label: "Dec", y: 97.8 },
-
+			{ label: "Jan", y: {{ $jans }} },
+			{ label: "Feb", y: {{ $febs }} },
+			{ label: "Mar", y: {{ $mars }} },
+			{ label: "Apr", y: {{ $aprs }} },
+			{ label: "May", y: {{ $mays }} },
+			{ label: "Jun", y: {{ $juns }} },
+            { label: "Jul", y: {{ $juls }} },
+            { label: "Aug", y: {{ $augs }} },
+            { label: "Sep", y: {{ $seps }} },
+            { label: "Oct", y: {{ $octs }} },
+            { label: "Nov", y: {{ $novs }} },
+            { label: "Dec", y: {{ $decs }} },
 		]
 	}]
 });
+
 
 
 function toggleDataSeries(e) {
@@ -172,74 +145,129 @@ function toggleDataSeries(e) {
 	else {
 		e.dataSeries.visible = true;
 	}
-	chart2.render();
+	chart3.render();
 }
 
-
-var chart3 = new CanvasJS.Chart("chartContainer3", {
-	exportEnabled: true,
+// Item Analysis
+var chart4 = new CanvasJS.Chart("chartContainer4", {
 	animationEnabled: true,
-	title: {
-		text: "Daily Borrowed and Returned Items Analysis"
-	},
-	axisX: {
-		valueFormatString: "DDD",
-		minimum: new Date(2017, 1, 5, 23),
-		maximum: new Date(2017, 1, 12, 1)
-	},
+    exportEnabled: true,
+	title:{
+		text: "Monthly Borrowed, Return and Lost Items Analysis"
+	},	
 	axisY: {
-		title: "Number of Items"
+		
+		titleFontColor: "#4F81BC",
+		lineColor: "#4F81BC",
+		labelFontColor: "#4F81BC",
+		tickColor: "#4F81BC"
 	},
-	legend: {
-		verticalAlign: "top",
-		horizontalAlign: "right",
-		dockInsidePlotArea: true
+	axisY2: {
+	
+		titleFontColor: "#C0504E",
+		lineColor: "#C0504E",
+		labelFontColor: "#C0504E",
+		tickColor: "#C0504E"
 	},
+    axisY3: {
+		
+		titleFontColor: "yellow",
+		lineColor: "yellow",
+		labelFontColor: "yellow",
+		tickColor: "yellow"
+	},	
 	toolTip: {
 		shared: true
 	},
+	legend: {
+		cursor:"pointer",
+		itemclick: toggleDataSeries
+	},
 	data: [{
+		type: "column",
 		name: "Borrowed",
-		showInLegend: true,
-		legendMarkerType: "square",
-		type: "area",
-		color: "rgba(40,175,101,0.6)",
-		markerSize: 0,
-		dataPoints: [
-			{ x: new Date(2017, 1, 6), y: 220 },
-			{ x: new Date(2017, 1, 7), y: 120 },
-			{ x: new Date(2017, 1, 8), y: 144 },
-			{ x: new Date(2017, 1, 9), y: 162 },
-			{ x: new Date(2017, 1, 10), y: 129 },
-			{ x: new Date(2017, 1, 11), y: 109 },
-			{ x: new Date(2017, 1, 12), y: 129 }
+		legendText: "Borrowed",
+		showInLegend: true, 
+		dataPoints:[
+			{ label: "Jan", y: {{ $janb }} },
+			{ label: "Feb", y: {{ $febb }} },
+			{ label: "Mar", y: {{ $marb }} },
+			{ label: "Apr", y: {{ $aprb }} },
+			{ label: "May", y: {{ $mayb }} },
+			{ label: "Jun", y: {{ $junb }} },
+            { label: "Jul", y: {{ $julb }} },
+            { label: "Aug", y: {{ $augb }} },
+            { label: "Sep", y: {{ $sepb }} },
+            { label: "Oct", y: {{ $octb }} },
+            { label: "Nov", y: {{ $novb }} },
+            { label: "Dec", y: {{ $decb }} },
+		]
+	},
+    {
+		type: "column",
+		name: "Lost",
+		legendText: "Lost",
+		showInLegend: true, 
+		dataPoints:[
+			{ label: "Jan", y: {{ $janl }} },
+			{ label: "Feb", y: {{ $febl }} },
+			{ label: "Mar", y: {{ $marl }} },
+			{ label: "Apr", y: {{ $aprl }} },
+			{ label: "May", y: {{ $mayl }} },
+			{ label: "Jun", y: {{ $junl }} },
+            { label: "Jul", y: {{ $jull }} },
+            { label: "Aug", y: {{ $augl }} },
+            { label: "Sep", y: {{ $sepl }} },
+            { label: "Oct", y: {{ $octl }} },
+            { label: "Nov", y: {{ $novl }} },
+            { label: "Dec", y: {{ $decl }} },
 		]
 	},
 	{
+		type: "column",	
 		name: "Return",
+		legendText: "Return",
+		axisYType: "secondary",
 		showInLegend: true,
-		legendMarkerType: "square",
-		type: "area",
-		color: "rgba(0,75,141,0.7)",
-		markerSize: 0,
-		dataPoints: [
-			{ x: new Date(2017, 1, 6), y: 42 },
-			{ x: new Date(2017, 1, 7), y: 34 },
-			{ x: new Date(2017, 1, 8), y: 29 },
-			{ x: new Date(2017, 1, 9), y: 42 },
-			{ x: new Date(2017, 1, 10), y: 53},
-			{ x: new Date(2017, 1, 11), y: 15 },
-			{ x: new Date(2017, 1, 12), y: 12 }
+		dataPoints:[
+			{ label: "Jan", y: {{ $janr }} },
+			{ label: "Feb", y: {{ $febr }} },
+			{ label: "Mar", y: {{ $marr }} },
+			{ label: "Apr", y: {{ $aprr }} },
+			{ label: "May", y: {{ $mayr }} },
+			{ label: "Jun", y: {{ $junr }} },
+            { label: "Jul", y: {{ $julr }} },
+            { label: "Aug", y: {{ $augr }} },
+            { label: "Sep", y: {{ $sepr }} },
+            { label: "Oct", y: {{ $octr }} },
+            { label: "Nov", y: {{ $novr }} },
+            { label: "Dec", y: {{ $decr }} },
 		]
 	}]
 });
-	
-	chart1.render();
-	chart2.render();
-	chart3.render();
-	chart4.render();
+
+
+
+function toggleDataSeries(e) {
+	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
 	}
-	</script>
+	else {
+		e.dataSeries.visible = true;
+	}
+	chart4.render();
+}
+
+
+chart.render();
+
+chart3.render();
+chart4.render();
+
+
+}
+
+</script>
 
 </head>
 
@@ -270,26 +298,25 @@ var chart3 = new CanvasJS.Chart("chartContainer3", {
                     <div>
                         <div class="d-sm-flex align-items-center justify-content-between mb-4 breadcrumb">
                         <h1 class="h5 mb-0 text-gray-800"><span><a href="{{route('admin.home')}}" class="fas fa-home"></a> &nbsp;/ Graph </span></h1>
-                        
+
                     </div>
                         <!--/.row-->
-					
-					<div id="chartContainer3" style="height: 300px; width: 100%;"></div>
-					<br><br>
-					<div id="chartContainer" style="height: 300px; width: 100%;"></div>
-					<br><br>
-					<div id="chartContainer4" style="height: 300px; width: 100%;"></div>
-					<br><br>
-					<div id="chartContainer2" style="height: 300px; width: 100%;"></div>
-					
-					
 
-				
+				<hr>
+					<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                    <hr>
+                    <div id="chartContainer3" style="height: 300px; width: 100%;"></div>
+                     <hr>
+                    <div id="chartContainer4" style="height: 300px; width: 100%;"></div>
                     
+
+
+
+
 
 
                      <!-- End for Table for Borrower -->
-                    
+
                 </div>
                  <!-- End of Page Content -->
 
@@ -341,30 +368,11 @@ var chart3 = new CanvasJS.Chart("chartContainer3", {
 
 
 
- <script type="text/javascript">
-    $(document).ready(function() {
-	//Only needed for the filename of export files.
-	//Normally set in the title tag of your page.
-	
-	// DataTable initialisation
-	$('#example').DataTable(
-		{
-			"dom": '<"dt-buttons"Bf><"clear">lirtp',
-			"paging": true,
-			"autoWidth": true,
-			"buttons": [
-				'colvis',
-				'copyHtml5',
-        'csvHtml5',
-				'excelHtml5',
-        'pdfHtml5',
-				'print'
-			]
-		}
-	);
-    });
- </script>
-	
+
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+    </script>
+
 	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('-admin/vendor/jquery/jquery.min.js') }}"></script>
@@ -394,8 +402,8 @@ var chart3 = new CanvasJS.Chart("chartContainer3", {
     </script>
 
 
-    
-   
+
+
 </body>
 
 </html>

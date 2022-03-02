@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\BorrrowersController;
 use App\Http\Controllers\Admin\EborrowerController;
 use App\Http\Controllers\Admin\EquipmentController;
 use App\Http\Controllers\Admin\GraphController;
+use App\Http\Controllers\Admin\LostItemsController;
 use App\Http\Controllers\Admin\InventoryController;
 use App\Http\Controllers\Admin\ProfileUserController;
 use App\Http\Controllers\Admin\ReservationController;
@@ -67,16 +68,24 @@ function(){
      //Reservation-pending
     Route::resource('reservations', ReservationsController::class);
     Route::post('reservation-accept/{id}', [ReservationsController::class,'acceptReservation'])->name('reservation.accept');
+    Route::post('reservation-decline/{id}', [ReservationsController::class,'declineReservation'])->name('reservation.decline');
+    
     Route::post('borrow/{id}', [ReservationsController::class,'borrow'])->name('reservation.borrow');
     Route::post('printpreview/{id}', [ReservationsController::class,'borrow']);
+   
 
      //Reservation-accepted
     Route::resource('acceptedreservation', AcceptedReservationController::class);
 
     Route::resource('borroweditems', BorrowedItemsController::class);
+    Route::get('generate', [BorrowedItemsController::class,'generate'])->name('borrowed.generate');
     Route::post('return/{id}', [BorrowedItemsController::class,'return'])->name('borrowed.return');
+    Route::post('lost/{id}', [BorrowedItemsController::class,'lost'])->name('borrowed.lost');
 
     Route::resource('returneditems', ReturnedItemsController::class);
+    
+    Route::resource('lostitems', LostItemsController::class);
+  
 
     //Equipment
     Route::resource('equipment', EquipmentController::class);

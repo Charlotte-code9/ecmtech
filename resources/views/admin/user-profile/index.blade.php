@@ -76,7 +76,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                            <img src="{{ asset('-admin/img/icon.jpg')}}" alt=""/>
+                            <img src="{{ asset('-admin/img/user.jpg')}}" alt=""/>
 
                         </div>
                     </div>

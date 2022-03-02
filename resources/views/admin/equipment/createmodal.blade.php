@@ -35,7 +35,7 @@
                 <label>Category</label>
                 <select class="form-control" name="e_category" id="e_category" required>
                     <option selected disabled>Select Category</option>
-                    <option value="Computer Hardware">Computer Hardware</option>
+                    <option value="Computer Device">Computer Hardware</option>
                     <option value="Sports">Sports</option>
                     <option value="Learning Modules">Learning Modules</option>
                     <option value="Faculty Staffs">Faculty Staffs</option>
@@ -71,7 +71,7 @@
                   <option selected disabled>Select Status</option>
                   <option value="New">New</option>
                   <option value="Old">Old</option>
-                  <option value="Old">Lost</option>
+                
                 </select>
             </div>
         </div>

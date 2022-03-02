@@ -16,4 +16,14 @@ class ReturnedItems extends Model
         'rroom',
         'rquantity',
     ];
+
+    protected $casts = [
+        'rdate' => 'datetime',
+        'returndate' => 'datetime',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

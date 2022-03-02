@@ -55,7 +55,7 @@
         <!-- Sidebar -->
       @include('admin.components.sidebar')
         <!-- End of Sidebar -->
-        {!! Toastr::message() !!}
+
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -64,6 +64,7 @@
 
                 <!-- Topbar -->
                 @include('admin.components.header')
+                {!! Toastr::message() !!}
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -93,7 +94,7 @@
                         </div>
                     @endif
 
-                    <br>
+                  
                     <hr>
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -109,8 +110,6 @@
                                             <th>Image</th>
                                             <th>Brand</th>
                                             <th>Item Name</th>
-                                           
-                                          
                                             <th>Action</th>
                                          </tr>
                                     </thead>
@@ -124,8 +123,8 @@
                                             <td><img src="{{ asset('storage/public/e_img/'.$eqpdata->e_image) }}" alt="Image" width="70px" height="70px"></td>
                                             <td>{{ $eqpdata->e_model }}</td>
                                             <td>{{ $eqpdata->e_brand }}</td>
-                                         
-                                         
+
+
 
                                             <td>
                                                 <div class="actcons">

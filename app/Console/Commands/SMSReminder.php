@@ -7,6 +7,8 @@ use Twilio\Rest\Client;
 use App\Models\BorrowedItems;
 use Illuminate\Console\Command;
 
+
+
 class SMSReminder extends Command
 {
     /**
@@ -33,6 +35,11 @@ class SMSReminder extends Command
         parent::__construct();
     }
 
+    protected $casts = [
+        'returnd' => 'datetime',
+
+    ];
+
     /**
      * Execute the console command.
      *
@@ -49,7 +56,7 @@ class SMSReminder extends Command
                 $client  = new Client(env('TWILIO_ACCOUNT_SID'), env('TWILIO_AUTH_TOKEN'));
                 $client->messages->create($item->user->mobile, [
                     'from' => env('TWILIO_PHONE_NUMBER'),
-                    'body' => "Your borrowed item: {$item->bdate} is due tomorrow. Please return it on time. Thanks!"
+                    'body' => "Mr/Ms {$item->user->name}, your borrowed item is {$item->bdate}. Kindly return it before or on, {$item->returnd->format('F j, Y @ h:i A')}. For more info's just visit our site. Thank you!"
                 ]);
             }
         }

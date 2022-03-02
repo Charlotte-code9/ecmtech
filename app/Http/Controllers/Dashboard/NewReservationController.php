@@ -47,10 +47,11 @@ class NewReservationController extends Controller
         $abc->ldate_item = $request->input('ldate_item');
         $abc->status = 'In Progress';
         $abc->user_id = Auth::user()->id;
+        $abc->name = Auth::user()->name;
         $abc->save();
 
         $act = new ActivityLogs();
-        $act->name = $abc->name;
+        $act->name = Auth::user()->name;
         $act->description = 'makes new reservation';
         $dt = Carbon::now();
         $dt->toDateTimeString();

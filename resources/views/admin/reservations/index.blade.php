@@ -122,7 +122,7 @@
                                                             <td>{{ $resdata->name }} </td>
                                                             <td>{{ $resdata->Name_item }}</td>
                                                             <td>{{ $resdata->quantity_item }}</td>
-                                                            <td>{{ $resdata->dt_item }}</td>
+                                                            <td>{{ $resdata->dt_item->format('F j, Y @ h:i A') }}</td>
                                                             <td>{{ $resdata->room_item }}  </td>
                                                             <td>
                                                             <form action="{{route('admin.reservation.accept',$resdata->id)}}" method="POST">
@@ -130,7 +130,10 @@
                                                             <button type="submit" class="btn btn-primary btn-sm" >Accept <i class="fas fa-chevron-right"></i></button></a>
                                                             </form>
                                                             <br>
-                                                            <button type="button" class="btn btn-danger btn-sm">Decline <i class="fas fa-times"></i></button>
+                                                              <form action="{{route('admin.reservation.decline',$resdata->id)}}" method="POST">
+                                                                {{ csrf_field() }}
+                                                            <button type="submit" class="btn btn-danger btn-sm">Decline <i class="fas fa-times"></i></button>
+                                                             </form>
                                                             </td>
                                                         </tr>
 
@@ -286,7 +289,7 @@
 	<script type="text/javascript" language="javascript" src="../resources/demo.js"></script>
 	<script type="text/javascript" class="init">
 
-    <!-- Page level custom scripts -->
+  
     <script src="{{ asset('-admin/js/demo/datatables-demo.js') }}"></script>
 
 

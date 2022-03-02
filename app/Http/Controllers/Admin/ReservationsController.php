@@ -27,7 +27,7 @@ class ReservationsController extends Controller
      */
     public function index()
     {
-        $act = ActivityLogs::where('name','!=', 'admin')->get();
+        $act = ActivityLogs::where('name','!=', 'admin')->latest()->take(5)->get();
         $app = Reservation::where('status', 'In Progress')->get();
         $acc = Reservation::where('status', 'Accepted')->get();
         return view('admin.reservations.index', compact(['app','acc','act']));
@@ -74,10 +74,29 @@ class ReservationsController extends Controller
     $act->save();
 
 
-    auth()->user()->notify(new AcceptReservation($second));
+   // auth()->user()->notify(new AcceptReservation($second));
     //then return to your view or whatever you want to do
     return redirect()->back()->with('message','Reservation Accepted');
 
+    }
+
+    public function declineReservation(Request $request, $id){
+        $second = Reservation::find($id); //this will select the row with the given id
+        $second->status='Declined';
+        $st = $second->Name_item;
+        $uv = $second->quantity_item;
+        $yv = $second->name;
+        $second->save();
+    
+        $act = new ActivityLogs();
+        $act->name ='Admin';
+        $act->description =  'accepts borrowers reservation' ;
+        $dt = Carbon::now();
+        $dt->toDateTimeString();
+        $act->date= $dt;
+        $act->save();
+
+        return redirect()->back()->with('message','Reservation Declined');
     }
 
     public function borrow($id){
@@ -88,6 +107,7 @@ class ReservationsController extends Controller
         $op = $first->dt_item;
         $qr = $first->room_item;
         $bb = $first->ldate_item;
+        $cc = $first->user_id;
         $first->delete();
 
         $second = new BorrowedItems();
@@ -99,10 +119,8 @@ class ReservationsController extends Controller
         $second->bquantity = $st;
         $second->broom = $qr;
         $second->returnd = $bb;
+        $second->user_id = $cc;
         $second->save();
-
-        
-
 
         $item = $first->Name_item;
         $qty= $first->quantity_item;

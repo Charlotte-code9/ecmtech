@@ -78,7 +78,7 @@ class UserProfileController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->mobile = $request->input('mobile');
-        $user->category= $request->input('category');
+        $user->u_category= $request->input('u_category');
         $user->uyear = $request->input('uyear');
         $user->usec = $request->input('usec');
        
@@ -94,7 +94,7 @@ class UserProfileController extends Controller
 
 
 
-        return redirect()->back()->with('message','User info updated successfully!');
+        return redirect()->back()->with('message','Your information details is now updated.');
     } 
 
     /**

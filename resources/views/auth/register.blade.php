@@ -35,7 +35,7 @@
                                 </div>
 
                                 <div class="form-group col-md-6">
-                                <input id="mobile" type="mobile" class="form-control @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile') }}" required autocomplete="mobile" placeholder="Phone Number">
+                                <input id="mobile" type="mobile" class="form-control @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile') }}" required autocomplete="mobile" placeholder="Phone Number:+639**********">
 
                                                             @error('mobile')
                                                             <span class="invalid-feedback" role="alert">
@@ -62,7 +62,7 @@
                                                                 <strong>{{ $message }}</strong>
                                                             </span>
                                                             @enderror
-                                
+
 
                                 </div>
 
@@ -90,7 +90,7 @@
 
                             <div class="form-row hidden" id="pDetails">
                             <div class="form-group col-md-6">
-                                     <select class="form-control @error('uyear') 
+                                     <select class="form-control @error('uyear')
                                         is-invalid @enderror" name="uyear" id="uyear">
                                         <option selected disabled>Year</option>
                                         <option value="First year">First Year</option>

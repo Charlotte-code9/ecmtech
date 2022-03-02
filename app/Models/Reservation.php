@@ -20,6 +20,10 @@ class Reservation extends Model
     //     'ldate_item',
     // ];
 
+    protected $casts = [
+        'dt_item' => 'datetime',
+
+    ];
 
     public function user()
     {

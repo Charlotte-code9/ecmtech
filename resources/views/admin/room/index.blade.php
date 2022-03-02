@@ -79,7 +79,7 @@
                  
 
 
-
+                        <hr>
                                         <div class="card shadow mb-4">
                                                 <div class="card-header py-3">
                                                     <h6 class="m-0 font-weight-bold text-primary">Rooms List</h6>
@@ -106,7 +106,6 @@
                                                                 <div>
                                                                 <button class="btn btn-success btn-sm" title="Edit"  data-toggle="modal" data-target="#editModal{{ $eqproom->id }}" data-id="{{ $eqproom->id }}">&nbsp;<i class="fas fa-edit" style="cursor: pointer"></i>&nbsp;</button>&nbsp;&nbsp;
                                                                 <button class="btn btn-danger btn-sm" title="Delete" data-toggle="modal" data-target="#deleteModal{{ $eqproom->id }}" data-id="{{ $eqproom->id }}" >&nbsp;<i class="fas fa-trash-alt" ></i>&nbsp;</button>&nbsp;&nbsp;
-                                                                <button class="btn btn-primary btn-sm" title="More Information" ><i class="fas fa-search" ></i></button>
                                                                 @include('admin.room.editmodal')
                                                                 @include('admin.room.deletemodal')
                                                                 </div>

@@ -71,7 +71,7 @@
                   <option selected disabled>Select Status</option>
                   <option value="New">New</option>
                   <option value="Old">Old</option>
-                  <option value="Old">Lost</option>
+                
                 </select>
             </div>
         </div>

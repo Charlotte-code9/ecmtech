@@ -16,7 +16,7 @@ class ReturnedItemsController extends Controller
      */
     public function index()
     {
-        $act = ActivityLogs::where('name','!=', 'admin')->get();
+        $act = ActivityLogs::where('name','!=', 'admin')->latest()->take(5)->get();
         $rt = ReturnedItems::all();
         return view('admin.returneditems.index',compact(['rt','act']));
     }

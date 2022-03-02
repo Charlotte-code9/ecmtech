@@ -16,10 +16,12 @@ class UserEquipmentController extends Controller
      */
     public function index()
     {
-      
+
         $eqp = Equipment::where('e_category','Computer Device')->get();
         $eqs = Equipment::where('e_category','Sports')->get();
-        return view('dashboard.equipment.index',compact(['eqp','eqs']));
+        $eql = Equipment::where('e_category','Learning Modules')->get();
+        $eqf = Equipment::where('e_category','Faculty Staffs')->get();
+        return view('dashboard.equipment.index',compact(['eqp','eqs','eql','eqf']));
     }
 
     /**

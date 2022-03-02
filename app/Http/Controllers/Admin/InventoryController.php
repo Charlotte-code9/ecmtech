@@ -18,7 +18,7 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        $act = ActivityLogs::where('name','!=', 'admin')->get();
+        $act = ActivityLogs::where('name','!=', 'admin')->latest()->take(5)->get();
         $inv = Equipment::all();
         return view('admin.inventory.index', compact(['inv','act']));
     }

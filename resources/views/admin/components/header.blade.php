@@ -40,11 +40,11 @@
         </li>
 
         <!-- Nav Item - Alerts -->
-        <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+       <!-- <li class="nav-item dropdown no-arrow mx-1">
+            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" onclick="notif()"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
-                <!-- Counter - Alerts -->
+                
                 <span class="badge badge-danger badge-counter">{{ count($act)}}</span>
             </a>
             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -62,14 +62,14 @@
                         </div>
                     </div>
                     <div>
-                        <div class="small text-gray-500">{{ $notification->date}}</div>
+                        <div class="small text-gray-500">{{ $notification->date->format('F j, Y @ h:i A')}}</div>
                         <span class="font-weight-bold">{{ $notification->name}} </span> {{$notification->description}}.</span>
                     </div>
                 </a>
                 @endforeach
                 <a class="dropdown-item text-center small text-gray-500" href="#">Mark as all read</a>
             </div>
-        </li>
+        </li>-->
 
 
 
@@ -81,7 +81,7 @@
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"> {{ Auth::user()->name }} </span>
                 <img class="img-profile rounded-circle"
-                    src="{{ asset('-admin/img/icon.jpg')}}">
+                    src="{{ asset('-admin/img/user.jpg')}}" height="20px">
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

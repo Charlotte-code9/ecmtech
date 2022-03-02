@@ -20,8 +20,8 @@ class EborrowerController extends Controller
      */
     public function index()
     {
-        $act = ActivityLogs::where('name','!=', 'admin')->get();
-        $borrowers = DB::table('users')->where('category', '=', 'student')->orwhere('category', '=', 'faculty')->get();
+        $act = ActivityLogs::where('name','!=', 'admin')->latest()->take(5)->get();
+        $borrowers = DB::table('users')->where('u_category', '=', 'student')->orwhere('u_category', '=', 'faculty')->get();
         return view('admin.borrower.index',compact(['borrowers','act']));
     }
 

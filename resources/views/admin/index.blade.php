@@ -66,65 +66,118 @@
 	});
     chart.render();
 
-    var chart2 = new CanvasJS.Chart("chartContainer2", {
-	exportEnabled: true,
+   // Item Analysis
+var chart4 = new CanvasJS.Chart("chartContainer4", {
 	animationEnabled: true,
-	title: {
-		text: "Daily Borrowed and Returned Items Analysis"
-	},
-	axisX: {
-		valueFormatString: "DDD",
-		minimum: new Date(2017, 1, 5, 23),
-		maximum: new Date(2017, 1, 12, 1)
-	},
+    exportEnabled: true,
+	title:{
+		text: "Monthly Borrowed, Return and Lost Items Analysis"
+	},	
 	axisY: {
-		title: "Number of Items"
+		
+		titleFontColor: "#4F81BC",
+		lineColor: "#4F81BC",
+		labelFontColor: "#4F81BC",
+		tickColor: "#4F81BC"
 	},
-	legend: {
-		verticalAlign: "top",
-		horizontalAlign: "right",
-		dockInsidePlotArea: true
+	axisY2: {
+	
+		titleFontColor: "#C0504E",
+		lineColor: "#C0504E",
+		labelFontColor: "#C0504E",
+		tickColor: "#C0504E"
 	},
+    axisY3: {
+		
+		titleFontColor: "yellow",
+		lineColor: "yellow",
+		labelFontColor: "yellow",
+		tickColor: "yellow"
+	},	
 	toolTip: {
 		shared: true
 	},
+	legend: {
+		cursor:"pointer",
+		itemclick: toggleDataSeries
+	},
 	data: [{
+		type: "column",
 		name: "Borrowed",
-		showInLegend: true,
-		legendMarkerType: "square",
-		type: "area",
-		color: "rgba(40,175,101,0.6)",
-		markerSize: 0,
-		dataPoints: [
-			{ x: new Date(2017, 1, 6), y: 220 },
-			{ x: new Date(2017, 1, 7), y: 120 },
-			{ x: new Date(2017, 1, 8), y: 144 },
-			{ x: new Date(2017, 1, 9), y: 162 },
-			{ x: new Date(2017, 1, 10), y: 129 },
-			{ x: new Date(2017, 1, 11), y: 109 },
-			{ x: new Date(2017, 1, 12), y: 129 }
+		legendText: "Borrowed",
+		showInLegend: true, 
+		dataPoints:[
+			{ label: "Jan", y: {{ $janb }} },
+			{ label: "Feb", y: {{ $febb }} },
+			{ label: "Mar", y: {{ $marb }} },
+			{ label: "Apr", y: {{ $aprb }} },
+			{ label: "May", y: {{ $mayb }} },
+			{ label: "Jun", y: {{ $junb }} },
+            { label: "Jul", y: {{ $julb }} },
+            { label: "Aug", y: {{ $augb }} },
+            { label: "Sep", y: {{ $sepb }} },
+            { label: "Oct", y: {{ $octb }} },
+            { label: "Nov", y: {{ $novb }} },
+            { label: "Dec", y: {{ $decb }} },
+		]
+	},
+    {
+		type: "column",
+		name: "Lost",
+		legendText: "Lost",
+		showInLegend: true, 
+		dataPoints:[
+			{ label: "Jan", y: {{ $janl }} },
+			{ label: "Feb", y: {{ $febl }} },
+			{ label: "Mar", y: {{ $marl }} },
+			{ label: "Apr", y: {{ $aprl }} },
+			{ label: "May", y: {{ $mayl }} },
+			{ label: "Jun", y: {{ $junl }} },
+            { label: "Jul", y: {{ $jull }} },
+            { label: "Aug", y: {{ $augl }} },
+            { label: "Sep", y: {{ $sepl }} },
+            { label: "Oct", y: {{ $octl }} },
+            { label: "Nov", y: {{ $novl }} },
+            { label: "Dec", y: {{ $decl }} },
 		]
 	},
 	{
+		type: "column",	
 		name: "Return",
+		legendText: "Return",
+		axisYType: "secondary",
 		showInLegend: true,
-		legendMarkerType: "square",
-		type: "area",
-		color: "rgba(0,75,141,0.7)",
-		markerSize: 0,
-		dataPoints: [
-			{ x: new Date(2017, 1, 6), y: 42 },
-			{ x: new Date(2017, 1, 7), y: 34 },
-			{ x: new Date(2017, 1, 8), y: 29 },
-			{ x: new Date(2017, 1, 9), y: 42 },
-			{ x: new Date(2017, 1, 10), y: 53},
-			{ x: new Date(2017, 1, 11), y: 15 },
-			{ x: new Date(2017, 1, 12), y: 12 }
+		dataPoints:[
+			{ label: "Jan", y: {{ $janr }} },
+			{ label: "Feb", y: {{ $febr }} },
+			{ label: "Mar", y: {{ $marr }} },
+			{ label: "Apr", y: {{ $aprr }} },
+			{ label: "May", y: {{ $mayr }} },
+			{ label: "Jun", y: {{ $junr }} },
+            { label: "Jul", y: {{ $julr }} },
+            { label: "Aug", y: {{ $augr }} },
+            { label: "Sep", y: {{ $sepr }} },
+            { label: "Oct", y: {{ $octr }} },
+            { label: "Nov", y: {{ $novr }} },
+            { label: "Dec", y: {{ $decr }} },
 		]
 	}]
 });
-chart2.render();
-    }
+
+
+
+function toggleDataSeries(e) {
+	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	}
+	else {
+		e.dataSeries.visible = true;
+	}
+	chart4.render();
+}
+chart4.render();
+}
+
 </script>
 
 
@@ -247,7 +300,7 @@ chart2.render();
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="chart-area">
-                                      <div id="chartContainer2" style="width: 100%; height: 100%;display: inline-block;"></div>
+                                      <div id="chartContainer4" style="width: 100%; height: 100%;display: inline-block;"></div>
                                     </div>
                                 </div>
                             </div>

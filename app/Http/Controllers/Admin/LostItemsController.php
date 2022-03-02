@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\ProfileUser;
-use Illuminate\Http\Request;
+use App\Models\LostItems;
 use App\Models\ActivityLogs;
-class ProfileUserController extends Controller
+use Illuminate\Http\Request;
+
+class LostItemsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,9 @@ class ProfileUserController extends Controller
      */
     public function index()
     {
-
         $act = ActivityLogs::where('name','!=', 'admin')->latest()->take(5)->get();
-        return view ('admin.user-profile.index',compact('act'));
+        $lost = LostItems::all();
+       return view('admin.lostitems.index',compact(['act','lost']));
     }
 
     /**
@@ -44,10 +45,10 @@ class ProfileUserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ProfileUser  $profileUser
+     * @param  \App\Models\LostItems  $lostItems
      * @return \Illuminate\Http\Response
      */
-    public function show(ProfileUser $profileUser)
+    public function show(LostItems $lostItems)
     {
         //
     }
@@ -55,22 +56,22 @@ class ProfileUserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ProfileUser  $profileUser
+     * @param  \App\Models\LostItems  $lostItems
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProfileUser $profileUser)
+    public function edit(LostItems $lostItems)
     {
-       
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ProfileUser  $profileUser
+     * @param  \App\Models\LostItems  $lostItems
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProfileUser $profileUser)
+    public function update(Request $request, LostItems $lostItems)
     {
         //
     }
@@ -78,10 +79,10 @@ class ProfileUserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ProfileUser  $profileUser
+     * @param  \App\Models\LostItems  $lostItems
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProfileUser $profileUser)
+    public function destroy(LostItems $lostItems)
     {
         //
     }

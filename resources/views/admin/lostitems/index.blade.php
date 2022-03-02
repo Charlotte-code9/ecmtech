@@ -14,7 +14,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-     <title>BSIT DEPARTMENT</title>
+    <title>BSIT DEPARTMENT</title>
     <link rel ="icon" href="{{ asset('-admin/img/ctu.png')}}" type="image/x-icon">
 
     <!-- Custom fonts for this template-->
@@ -70,26 +70,18 @@
                     <!-- Page Heading -->
                     <div>
                         <div class="d-sm-flex align-items-center justify-content-between mb-4 breadcrumb">
-                        <h1 class="h5 mb-0 text-gray-800"><span><a href="{{route('admin.home')}}" class="fas fa-home"></a> &nbsp;/ Borrower </span></h1>
-                       <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#exampleModal"><i
+                        <h1 class="h5 mb-0 text-gray-800"><span><a href="{{route('admin.home')}}" class="fas fa-home"></a> &nbsp;/ Lost Items </span></h1>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#exampleModal"><i
                             class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
                         <!--/.row-->
                     </div>
 
 
-
                     <hr>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="tab-content">
-
-
                                         <div class="card shadow mb-4">
                                                 <div class="card-header py-3">
-                                                    <h6 class="m-0 font-weight-bold text-primary">Borrower List</h6>
+                                                    <h6 class="m-0 font-weight-bold text-primary">Lost Items List</h6>
                                                 </div>
                                             <div class="card-body">
 
@@ -97,36 +89,29 @@
                                                 <table class="table table-striped table-bordered tbl_pendingres display" id="dataTable" width="100%" cellspacing="0">
                                                     <thead>
                                                         <tr>
-                                                            <th hidden>ID Number</th>
-                                                            <th>Name</th>
-                                                            <th>Email</th>
-                                                            <th>Type</th>
-                                                            <th>Year/Section</th>
-                                                            <th>Action</th>
+                                                            <th hidden>Id</th>
+                                                            <th>Borrower's Name</th>
+                                                            <th>Date Borrowed</th>
+                                                            <th>Equipment Borrowed</th>
+                                                            <th>Quantity</th>
+                                                            <th>Rooms</th>
+                                                         
                                                          </tr>
                                                     </thead>
 
                                                     <tbody>
-                                                        @foreach ($borrowers as $borrower)
+                                                    @foreach ($lost as $btdata)
                                                         <tr>
-                                                            <td hidden> {{ $borrower->id }} </td>
-                                                            <td> {{ $borrower->name }} </td>
-                                                            <td> {{ $borrower->email }} </td>
-                                                            <td> {{ $borrower->u_category }} </td>
-                                                            <td> {{ $borrower->uyear}} - {{ $borrower->usec }}   </td>
-
-                                                            <td>
-                                                                <div>
-
-                                                                <button class="btn btn-danger btn-sm" title="Delete"  data-toggle="modal" data-target="#bdeleteModal{{ $borrower->id }}">&nbsp;<i class="fas fa-trash-alt" ></i>&nbsp;</button>&nbsp;&nbsp;
-                                                                <button class="btn btn-primary btn-sm" title="More Information" data-toggle="modal" data-target="#bviewModal{{ $borrower->id }}">&nbsp;<i class="fas fa-search"></i>&nbsp;</button>
-
-                                                                @include('admin.borrower.deletemodal')
-                                                                @include('admin.borrower.viewmodal')
-                                                                </div>
-                                                            </td>
+                                                            <td hidden></td>
+                                                            <td>{{ $btdata->borrower_name }}</td>
+                                                            <td>{{ $btdata->b_date->format('F j, Y @ h:i A') }}</td>
+                                                            <td>{{ $btdata->b_item }}</td>
+                                                            <td>{{ $btdata->qty }}</td>
+                                                            <td>{{ $btdata->b_room }}</td>
+                                                            
+                                                            
                                                         </tr>
-                                                        @endforeach
+                                                    @endforeach
                                                     </tbody>
                                                 </table>
 
@@ -141,7 +126,7 @@
                                 </div>
 
 
-                            </div>
+
 
                      <!-- End for Table for Borrower -->
                 </div>
@@ -271,6 +256,3 @@
 </body>
 
 </html>
-
-
-

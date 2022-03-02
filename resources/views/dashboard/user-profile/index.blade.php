@@ -85,7 +85,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                            <img src="{{ asset('-admin/img/icon.jpg')}}" alt=""/>
+                            <img src="{{ asset('-admin/img/user.jpg')}}" alt=""/>
 
                         </div>
                     </div>
@@ -153,7 +153,7 @@
                                                 <label>Category</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>{{ Auth::user()->category}}</p>
+                                                <p>{{ Auth::user()->u_category}}</p>
                                             </div>
                                         </div>
                                          <div class="row">

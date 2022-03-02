@@ -33,6 +33,7 @@
                 <a class="collapse-item" href="{{ route('admin.reservations.index') }}"> <i class="fas fa-eye"> Reservations </i> </a>
                 <a class="collapse-item" href="{{ route('admin.borroweditems.index') }}"> <i class="fas fa-file-export"> Borrowed Items</i> </a>
                 <a class="collapse-item" href="{{ route('admin.returneditems.index') }}"> <i class="fas fa-calendar-check"> Returned Items </i></a>
+                <a class="collapse-item" href="{{ route('admin.lostitems.index') }}"> <i class="fas fa-calendar-check"> Lost Items </i></a>
             </div>
         </div>
     </li>

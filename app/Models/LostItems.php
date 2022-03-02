@@ -5,25 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BorrowedItems extends Model
+class LostItems extends Model
 {
     use HasFactory;
-    protected $table = 'borroweditem';
+    protected $table = 'lostitems';
     protected $fillable = [
-        'bname',
-        'bdate',
-        'itemb',
-        'broom',
-        'bquantity',
-        'user_id'
+        'borrower_name',
+        'b_date',
+        'b_ite,',
+        'b_room',
+        'quantity',
+        'r_date',
+        'user_id',
 
     ];
 
     protected $casts = [
-        'itemb' => 'datetime',
-        'returnd' => 'datetime',
+        'b_date' => 'datetime',
+        'r_date' => 'datetime',
     ];
-
     public function user()
     {
         return $this->belongsTo(User::class);

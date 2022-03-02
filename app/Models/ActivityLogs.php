@@ -14,4 +14,9 @@ class ActivityLogs extends Model
         'description',
         'date',
     ];
+
+    protected $casts = [
+        'date' => 'datetime',
+
+    ];
 }

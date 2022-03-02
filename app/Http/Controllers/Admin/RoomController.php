@@ -17,7 +17,7 @@ class RoomController extends Controller
      */
     public function index()
     {
-        $act = ActivityLogs::where('name','!=', 'admin')->get();
+        $act = ActivityLogs::where('name','!=', 'admin')->latest()->take(5)->get();
         $eqps = Room::all();
         return view('admin.room.index',compact(['eqps','act']));
     }

@@ -61,13 +61,13 @@
                     <div>
                         <div class="d-sm-flex align-items-center justify-content-between mb-4 breadcrumb">
                         <h1 class="h5 mb-0 text-gray-800"><span><a href="{{route('admin.home')}}" class="fas fa-home"></a> &nbsp;/ Returned Items </span></h1>
-                        <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#exampleModal"><i
-                            class="fas fa-download fa-sm text-white-50"></i> Add Equipment</a> -->
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#exampleModal"><i
+                            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
                         <!--/.row-->
                     </div>
 
-                    <br>
+                    <hr>
 
                     <!-- Table for Borrower -->
                     <div class="card shadow mb-4">
@@ -93,8 +93,8 @@
                                         <td hidden> </td>
                                         <td>{{ $rtdata->rname }} </td>
                                         <td>{{ $rtdata->itemr }}</td>
-                                        <td>{{ $rtdata->rdate }}</td>
-                                        <td>{{ $rtdata->returndate}}</td>
+                                        <td>{{ $rtdata->rdate->format('F j, Y @ h:i A') }}</td>
+                                        <td>{{ $rtdata->returndate->format('F j, Y @ h:i A')}}</td>
 
                                     </tr>
 
