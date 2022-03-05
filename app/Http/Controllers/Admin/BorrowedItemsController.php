@@ -35,7 +35,8 @@ class BorrowedItemsController extends Controller
         //
     }
 
-    public function return($id){
+    public function return($id)
+    {
         $first = BorrowedItems::where('id', $id)->first();
 
         $kl = $first->bname;
@@ -65,7 +66,8 @@ class BorrowedItemsController extends Controller
         return redirect()->back()->with('message','Item Returned Successfully!');
     }
 
-    public function lost($id){
+    public function lost($id)
+    {
         $borrow = BorrowedItems::where('id', $id)->first();
 
         $kl = $borrow->bname;
@@ -89,11 +91,11 @@ class BorrowedItemsController extends Controller
         echo $time->toDateTimeString();
         $lost->r_date = $time;
         $lost->save();
-       
+
         return redirect()->back()->with('message','Item added to Lost Items List!');
     }
 
-    public function generate()
+    public function generatereport()
     {
         $bt = BorrowedItems::all();
         return view('admin.borroweditem.report',compact('bt'));

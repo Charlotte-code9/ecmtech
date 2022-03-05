@@ -28,10 +28,19 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('-admin/css/login.css') }}" rel="stylesheet">
- <!-- Custom styles for the modal -->
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
- integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+    <!-- Custom styles for the modal -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css">
+
+    <style>
+        .daterange{
+            margin-left: 4%;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -61,13 +70,49 @@
                     <div>
                         <div class="d-sm-flex align-items-center justify-content-between mb-4 breadcrumb">
                         <h1 class="h5 mb-0 text-gray-800"><span><a href="{{route('admin.home')}}" class="fas fa-home"></a> &nbsp;/ Returned Items </span></h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#exampleModal"><i
-                            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        <div class="btn-group btn-sm" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-primary btn-sm" onclick="exportData()">Excel</button>
+                            <button type="button" class="btn btn-primary btn-sm" onclick="generate()">PDF</button>
+                            <button type="button" class="btn btn-primary btn-sm">CSV</button>
+                          </div>
                     </div>
                         <!--/.row-->
                     </div>
 
                     <hr>
+                    <form action="{{ route('admin.return.daterange') }}" method="GET">
+                    {{ csrf_field() }}
+                    <div class="col-md-12 mt-3 daterange">
+                        <div class="row">
+                            <div class="col-md-5">
+
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-info text-white" id="basic-addon1">From:</span>
+                                    </div>
+                                    <input class="form-control" type="date" name="from_date" id="from_date" placeholder="From Date" required>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-5">
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-info text-white" id="basic-addon1">To:</span>
+                                    </div>
+
+                                    <input type="date" class="form-control" name="end_date" id="end_date" placeholder="End Date" required >
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" name="filter" id="filter" class="btn btn-primary">Search</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+                    <br>
 
                     <!-- Table for Borrower -->
                     <div class="card shadow mb-4">
@@ -93,8 +138,8 @@
                                         <td hidden> </td>
                                         <td>{{ $rtdata->rname }} </td>
                                         <td>{{ $rtdata->itemr }}</td>
-                                        <td>{{ $rtdata->rdate->format('F j, Y @ h:i A') }}</td>
-                                        <td>{{ $rtdata->returndate->format('F j, Y @ h:i A')}}</td>
+                                        <td> {{ date('F j, Y @ h:i A', strtotime($rtdata->rdate)) }}</td>
+                                        <td> {{ date('F j, Y @ h:i A', strtotime($rtdata->returndate)) }}</td>
 
                                     </tr>
 
@@ -108,6 +153,7 @@
                             </div>
                         </div>
                     </div>
+
                      <!-- End for Table for Borrower -->
                 </div>
 
@@ -157,8 +203,10 @@
     </div>
 
 
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+    <script type="text/javascript" src="{{ asset('-admin/js/excel.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('-admin/js/pdf.js')}}"></script>
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('-admin/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('-admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -188,6 +236,7 @@
        <script type="text/javascript" src="/media/js/dynamic.php?comments-page=examples%2Fbasic_init%2Fmultiple_tables.html" async></script>
        <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+
 
 </body>
 

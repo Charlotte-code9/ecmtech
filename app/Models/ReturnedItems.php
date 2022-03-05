@@ -20,6 +20,7 @@ class ReturnedItems extends Model
     protected $casts = [
         'rdate' => 'datetime',
         'returndate' => 'datetime',
+
     ];
 
     public function user()

@@ -42,6 +42,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
+
+
 </head>
 
 <body id="page-top">
@@ -71,7 +73,7 @@
                     <div>
                         <div class="d-sm-flex align-items-center justify-content-between mb-4 breadcrumb">
                         <h1 class="h5 mb-0 text-gray-800"><span><a href="{{route('admin.home')}}" class="fas fa-home"></a> &nbsp;/ Borrower </span></h1>
-                       <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#exampleModal"><i
+                       <a href="{{ route('admin.borrower.generate') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" ><i
                             class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
                         <!--/.row-->

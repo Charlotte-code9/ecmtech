@@ -56,7 +56,8 @@ Street 15
 123456 City
 United Kingdom
 <br /><br />
-Date: 2018-01-01
+
+Date:
 
 </pre>
 
@@ -90,12 +91,11 @@ Date: 2018-01-01
                                                     <thead>
                                                         <tr>
                                                             <th hidden>Id</th>
-                                                            <th>Borrower's Name</th>
-                                                            <th>Date Borrowed</th>
-                                                            <th>Equipment Borrowed</th>
-                                                            <th>Quantity</th>
-                                                            <th>Rooms</th>
-                                                            <th>Return Date</th>
+                                                            <th>Name</th>
+                                                            <th>Email</th>
+                                                            <th>Type</th>
+                                                            <th>Year/Section</th>
+
 
                                                          </tr>
                                                     </thead>
@@ -103,13 +103,11 @@ Date: 2018-01-01
                                                     <tbody style="text-align:center">
                                                     @foreach ($bt as $btdata)
                                                         <tr>
-                                                            <td hidden></td>
-                                                            <td>{{ $btdata->bname }}</td>
-                                                            <td>{{ $btdata->itemb->format('F j, Y @ h:i A') }}</td>
-                                                            <td>{{ $btdata->bdate }}</td>
-                                                            <td>{{ $btdata->bquantity }}</td>
-                                                            <td>{{ $btdata->broom }}</td>
-                                                            <td>{{ $btdata->returnd->format('F j, Y @ h:i A') }}</td>
+                                                            <td hidden> {{$btdata->id }} </td>
+                                                            <td> {{$btdata->name }} </td>
+                                                            <td> {{$btdata->email }} </td>
+                                                            <td> {{$btdata->u_category }} </td>
+                                                            <td> {{$btdata->uyear}} - {{$btdata->usec }}   </td>
                                                         </tr>
                                                     @endforeach
                                                     </tbody>

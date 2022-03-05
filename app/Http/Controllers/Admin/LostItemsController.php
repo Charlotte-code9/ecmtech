@@ -31,6 +31,12 @@ class LostItemsController extends Controller
         //
     }
 
+    public function generate()
+    {
+        $bt = LostItems::all();
+        return view('admin.lostitems.report',compact('bt'));
+    }
+
     /**
      * Store a newly created resource in storage.
      *

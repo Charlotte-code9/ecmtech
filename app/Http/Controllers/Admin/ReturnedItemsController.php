@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ReturnedItems;
 use Illuminate\Http\Request;
 use App\Models\ActivityLogs;
+use Illuminate\Support\Facades\DB;
 
 class ReturnedItemsController extends Controller
 {
@@ -31,6 +32,29 @@ class ReturnedItemsController extends Controller
         //
     }
 
+
+    function daterange(Request $request)
+    {
+
+
+        $fromDate = $request->input('from_date');
+        $toDate = $request->input('end_date');
+
+        $act = ActivityLogs::where('name','!=', 'admin')->latest()->take(5)->get();
+        $rt = DB::select("SELECT * FROM returneditem WHERE created_at BETWEEN '$fromDate 00:00:00' AND '$toDate 23:59:59'");
+        return view('admin.returneditems.index',compact(['rt','act']));
+
+    }
+
+
+    public function generate(Request $request)
+    {
+        $fromDate = $request->input('from_date');
+        $toDate = $request->input('end_date');
+
+        $bt = DB::select("SELECT * FROM returneditem WHERE created_at BETWEEN '$fromDate 00:00:00' AND '$toDate 23:59:59'");
+        return view('admin.returneditems.report',compact('bt'));
+    }
     /**
      * Store a newly created resource in storage.
      *

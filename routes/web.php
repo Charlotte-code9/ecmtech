@@ -69,23 +69,26 @@ function(){
     Route::resource('reservations', ReservationsController::class);
     Route::post('reservation-accept/{id}', [ReservationsController::class,'acceptReservation'])->name('reservation.accept');
     Route::post('reservation-decline/{id}', [ReservationsController::class,'declineReservation'])->name('reservation.decline');
-    
+
     Route::post('borrow/{id}', [ReservationsController::class,'borrow'])->name('reservation.borrow');
     Route::post('printpreview/{id}', [ReservationsController::class,'borrow']);
-   
+
 
      //Reservation-accepted
     Route::resource('acceptedreservation', AcceptedReservationController::class);
 
     Route::resource('borroweditems', BorrowedItemsController::class);
-    Route::get('generate', [BorrowedItemsController::class,'generate'])->name('borrowed.generate');
+    Route::get('borrowed-generate', [BorrowedItemsController::class,'generatereport'])->name('borrowed.generate');
     Route::post('return/{id}', [BorrowedItemsController::class,'return'])->name('borrowed.return');
     Route::post('lost/{id}', [BorrowedItemsController::class,'lost'])->name('borrowed.lost');
 
     Route::resource('returneditems', ReturnedItemsController::class);
-    
+    Route::get('return-generate', [ReturnedItemsController::class,'generate'])->name('return.generate');
+    Route::get('returned-items', [ReturnedItemsController::class,'daterange'])->name('return.daterange');
+
     Route::resource('lostitems', LostItemsController::class);
-  
+    Route::get('lost-generate', [LostItemsController::class,'generate'])->name('lost.generate');
+
 
     //Equipment
     Route::resource('equipment', EquipmentController::class);
@@ -93,6 +96,7 @@ function(){
 
     //Borrower
     Route::resource('borrower', EborrowerController::class);
+    Route::get('borrower-generate', [EborrowerController::class,'generate'])->name('borrower.generate');
 
     //Inventory
     Route::resource('inventory', InventoryController::class);

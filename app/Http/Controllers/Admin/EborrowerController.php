@@ -35,6 +35,12 @@ class EborrowerController extends Controller
         //
     }
 
+    public function generate()
+    {
+
+        $bt = User::where('u_category', '=', 'student')->orwhere('u_category', '=', 'faculty')->get();
+        return view('admin.borrower.report',compact('bt'));
+    }
     /**
      * Store a newly created resource in storage.
      *

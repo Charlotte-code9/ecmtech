@@ -75,7 +75,7 @@
                             class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
                         <!--/.row-->
-                    </div>
+
 
 
                     <hr>
@@ -129,7 +129,7 @@
 
                                             </div>
                                             </div>
-                                            </div>
+
 
 
 

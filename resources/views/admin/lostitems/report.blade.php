@@ -26,7 +26,7 @@
             font-size: x-small;
         }
         .invoice table {
-            margin-right: 15px;
+            margin-right: 20%;
         }
         .invoice h3 {
             margin-left: 15px;
@@ -85,7 +85,7 @@ Date: 2018-01-01
 <br/>
 
 <div class="invoice">
-    <h3>Borrowed Items Report</h3>
+    <h3>Lost Items Report</h3>
                                                 <table class="table table-striped table-bordered tbl_pendingres display" id="dataTable" width="100%" cellspacing="0">
                                                     <thead>
                                                         <tr>
@@ -95,7 +95,7 @@ Date: 2018-01-01
                                                             <th>Equipment Borrowed</th>
                                                             <th>Quantity</th>
                                                             <th>Rooms</th>
-                                                            <th>Return Date</th>
+
 
                                                          </tr>
                                                     </thead>
@@ -104,12 +104,12 @@ Date: 2018-01-01
                                                     @foreach ($bt as $btdata)
                                                         <tr>
                                                             <td hidden></td>
-                                                            <td>{{ $btdata->bname }}</td>
-                                                            <td>{{ $btdata->itemb->format('F j, Y @ h:i A') }}</td>
-                                                            <td>{{ $btdata->bdate }}</td>
+                                                            <td>{{ $btdata->borrower_name }}</td>
+                                                            <td>{{ $btdata->bdate->format('F j, Y @ h:i A') }}</td>
+                                                            <td>{{ $btdata->bitem }}</td>
                                                             <td>{{ $btdata->bquantity }}</td>
                                                             <td>{{ $btdata->broom }}</td>
-                                                            <td>{{ $btdata->returnd->format('F j, Y @ h:i A') }}</td>
+
                                                         </tr>
                                                     @endforeach
                                                     </tbody>

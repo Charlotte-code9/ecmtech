@@ -52,11 +52,9 @@
             <td align="left" style="width: 40%;">
                 <h3>Bachelor of Science in Information Technology Department</h3>
                 <pre>
-Street 15
-123456 City
-United Kingdom
+
 <br /><br />
-Date: 2018-01-01
+Date:
 
 </pre>
 
@@ -71,9 +69,9 @@ Date: 2018-01-01
                 <pre>
                     Daanbantayan Campus
 
-                    Street 26
-                    123456 City
-                    United Kingdom
+                    Agujo
+                    Daanbantayan
+                    Cebu
                 </pre>
             </td>
         </tr>
@@ -85,7 +83,7 @@ Date: 2018-01-01
 <br/>
 
 <div class="invoice">
-    <h3>Borrowed Items Report</h3>
+    <h3>Returned Items Report</h3>
                                                 <table class="table table-striped table-bordered tbl_pendingres display" id="dataTable" width="100%" cellspacing="0">
                                                     <thead>
                                                         <tr>
@@ -104,12 +102,12 @@ Date: 2018-01-01
                                                     @foreach ($bt as $btdata)
                                                         <tr>
                                                             <td hidden></td>
-                                                            <td>{{ $btdata->bname }}</td>
-                                                            <td>{{ $btdata->itemb->format('F j, Y @ h:i A') }}</td>
-                                                            <td>{{ $btdata->bdate }}</td>
-                                                            <td>{{ $btdata->bquantity }}</td>
-                                                            <td>{{ $btdata->broom }}</td>
-                                                            <td>{{ $btdata->returnd->format('F j, Y @ h:i A') }}</td>
+                                                            <td>{{ $btdata->rname }}</td>
+                                                            <td>{{ $btdata->rdate->format('F j, Y @ h:i A') }}</td>
+                                                            <td>{{ $btdata->itemr }}</td>
+                                                            <td>{{ $btdata->rquantity }}</td>
+                                                            <td>{{ $btdata->rroom }}</td>
+                                                            <td>{{ $btdata->returndate->format('F j, Y @ h:i A') }}</td>
                                                         </tr>
                                                     @endforeach
                                                     </tbody>
@@ -131,3 +129,4 @@ Date: 2018-01-01
 </div>
 </body>
 </html>
+
